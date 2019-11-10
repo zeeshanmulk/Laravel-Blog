@@ -1,22 +1,22 @@
-version: '2'
+version: '3'
 
 services:
   mariadb:
     image: 'bitnami/mariadb:10.1'
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
-      - MARIADB_USER=my_user
-      - MARIADB_DATABASE=my_database
-      - MARIADB_PASSWORD=my_password
+      - MARIADB_USER=${DB_USERNAME}
+      - MARIADB_DATABASE=${DB_DATABASE}
+      - MARIADB_PASSWORD=${DB_PASSWORD}
 
   myapp:
     tty: true
     image: bitnami/laravel:6-debian-9
     environment:
       - DB_HOST=mariadb
-      - DB_USERNAME=my_user
-      - DB_DATABASE=my_database
-      - DB_PASSWORD=my_password
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
       - mariadb
     ports:

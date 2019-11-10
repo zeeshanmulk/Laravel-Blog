@@ -1,0 +1,30 @@
+docker run -it --network laravel_01_default --rm mariadb mysql -h4e07bf53913a -uroot -p
+
+docker-compose up --force-recreate
+- This is to force create a network lost
+
+php artisan make:controller PostsController --resource
+- This will create a resource controller with some default database operations
+
+php artisan make:model Post -m
+- This creates a Post.php file in the app folder that extends Model, which is how
+the database stuff is; i.e. contains defination of columns, etc.
+
+php artisan migrate (do inside the app container)
+- This will use the tables and run the migrations that create tables, add columns, etc.
+
+php artisan tinker (do inside the app container)
+- The instantiate models and save them
+$post = App\Posts();
+$post->title = 'Some title';
+$post->save();
+
+php artisan route:list
+- This will display all the routes
+
+npm run dev
+- If any style changes are made, this needs to be done so the bootstrap resources
+get updated.
+
+npm run watch
+- Same as above by dynamic
