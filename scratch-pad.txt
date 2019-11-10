@@ -28,3 +28,11 @@ get updated.
 
 npm run watch
 - Same as above by dynamic
+
+Some elequent commands:
+- Model::orderBy('table_name', 'asc/desc')->get();
+- Model::orderBy('table_name', 'asc/desc')->paginate(num_per_page);
+- - In the blade, just add {{$posts->links()}} to add a pagination arrows
+- Model::where('title', 'content')->get();
+
+
